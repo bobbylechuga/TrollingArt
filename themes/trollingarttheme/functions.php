@@ -166,6 +166,7 @@ function metaTagsRich() {
 <meta property="og:image" content="<?php echo $imageMeme; ?>"/>
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); echo " - ".$description; ?>"/>
 <meta property="og:description" content="<?php echo mb_strimwidth($tags, 0, 400, "..."); ?>"/>	
+<meta property="og:url" content="<?php echo get_the_permalink(); ?>"/>	
 <?php 
 
 }
