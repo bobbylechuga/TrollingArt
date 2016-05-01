@@ -146,8 +146,10 @@ function metaTagsRich() {
 	if (is_home() || is_front_page()){
 		$tags = "Museums don't have to be boring. With Trollingart you will discover that art can be fun: Art memes, Art Gif, Classic and Modern art.";
 		$imageMeme = "todo.jpg";
+		$cannicalUrl = site_url();
 	}else {
 		// Crea estructura de metas si el post es original trollingArt
+		$cannicalUrl = get_the_permalink();
 		if (!get_post_format($post->ID)) {
 			$datosArtists[] = get_field('artist');
 			$post = get_post($post->ID);
@@ -167,7 +169,7 @@ function metaTagsRich() {
 <meta property="og:image" content="<?php echo $imageMeme; ?>"/>
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); echo " - ".$description; ?>"/>
 <meta property="og:description" content="<?php echo mb_strimwidth($tags, 0, 400, "..."); ?>"/>	
-<meta property="og:url" content="<?php echo get_the_permalink(); ?>"/>	
+<meta property="og:url" content="<?php echo $cannicalUrl; ?>"/>	
 <?php 
 
 }
