@@ -143,13 +143,16 @@ add_action( 'wp_enqueue_scripts', 'trollingarttheme_scripts' );
 
 function metaTagsRich() {
 	$description = get_bloginfo( 'description', 'display' );
+	$canonicalTitle = get_bloginfo( 'name', 'display' ). " - ".$description;
 	if (is_home() || is_front_page()){
 		$tags = "Museums don't have to be boring. With Trollingart you will discover that art can be fun: Art memes, Art Gif, Classic and Modern art.";
-		$imageMeme = "todo.jpg";
+		$imageMeme = "http://trollingart.com/wp-content/themes/trollingarttheme/images/logo-trollingart.jpg";
 		$cannicalUrl = site_url();
+		
 	}else {
 		// Crea estructura de metas si el post es original trollingArt
 		$cannicalUrl = get_the_permalink();
+		$canonicalTitle = get_the_title();
 		if (!get_post_format($post->ID)) {
 			$datosArtists[] = get_field('artist');
 			$post = get_post($post->ID);
@@ -165,9 +168,9 @@ function metaTagsRich() {
 <meta name="description" content="<?php echo mb_strimwidth($tags, 0, 155, "..."); ?>"/>
 <!-- Facebook -->
 <meta property="fb:app_id" content="548546291973891"/>
-<meta property="og:title" content="<?php echo get_the_title(); ?>"/>
+<meta property="og:title" content="<?php echo $canonicalTitle; ?>"/>
 <meta property="og:image" content="<?php echo $imageMeme; ?>"/>
-<meta property="og:site_name" content="<?php bloginfo( 'name' ); echo " - ".$description; ?>"/>
+<meta property="og:site_name" content="<?php echo $cannicalUrl; ?>"/>
 <meta property="og:description" content="<?php echo mb_strimwidth($tags, 0, 400, "..."); ?>"/>	
 <meta property="og:url" content="<?php echo $cannicalUrl; ?>"/>	
 <?php 
