@@ -55,7 +55,16 @@
       </div>
       <div class="col-md-6">
         <div class="well pull-right">
-          <img class="img-responsive" src="//placehold.it/500x100/E7E7E7">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- trollingNewTop -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-3620678877337408"
+			     data-ad-slot="5535027177"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
         </div>
       </div>
     </div>
