@@ -299,6 +299,9 @@ function save_custom_user_profile_fields($user_id){
     # again do this only if you can
     if(!current_user_can('manage_options'))
         return false;
+    if ($role !== "wikiartist") { 
+    	return false;
+    }   
 
     # save my custom field
 
@@ -329,12 +332,12 @@ function save_custom_user_profile_fields($user_id){
 	update_user_meta($user_id, 'company', $_POST['company']);
 	update_user_meta($user_id, 'wikiPicfile', $wikiProfile);
 	update_user_meta($user_id, 'description', $bioArtist);
-	if ($role == "WikiArtist") { 
+		
 		update_user_meta($user_id, 'first_name', $name);
 		update_user_meta($user_id, 'last_name', $lastname);
 		update_user_meta($user_id, 'nickname', $nickName);
 		update_user_meta($user_id, 'display_name', $nickName);
-	}
+	//}
 }
 add_action('user_register', 'save_custom_user_profile_fields');
 add_action('profile_update', 'save_custom_user_profile_fields');
