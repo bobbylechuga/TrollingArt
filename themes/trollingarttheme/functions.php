@@ -162,6 +162,7 @@ function metaTagsRich() {
 ?>
 <meta name="description" content="<?php echo mb_strimwidth($tags, 0, 155, "..."); ?>"/>
 <!-- Facebook -->
+<meta property="fb:app_id" content="548546291973891"/>
 <meta property="og:title" content="<?php echo get_the_title(); ?>"/>
 <meta property="og:image" content="<?php echo $imageMeme; ?>"/>
 <meta property="og:site_name" content="<?php bloginfo( 'name' ); echo " - ".$description; ?>"/>
