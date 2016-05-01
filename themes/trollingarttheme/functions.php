@@ -141,6 +141,40 @@ function trollingarttheme_scripts() {
 add_action( 'wp_enqueue_scripts', 'trollingarttheme_scripts' );
 
 
+function metaTagsRich() {
+	$description = get_bloginfo( 'description', 'display' );
+	if (is_home() || is_front_page()){
+		$tags = 'Art memes, Art jokes, Art gif and Art';
+		$imageMeme = "todo.jpg";
+	}else {
+		// Crea estructura de metas si el post es original trollingArt
+		if (!get_post_format($post->ID)) {
+			$datosArtists[] = get_field('artist');
+			$post = get_post($post->ID);
+			$tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', get_field('masterpiece'));
+			$tags .= ' - '.$datosArtists[0]['display_name'].". ".$post->post_content;
+			$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id))); 
+		}else {
+			$tags = "";
+			$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
+		}
+	}
+?>
+<meta name="description" content="<?php echo mb_strimwidth($tags, 0, 155, "..."); ?>"/>
+<!-- Facebook -->
+<meta property="og:title" content="<?php echo get_the_title(); ?>"/>
+<meta property="og:image" content="<?php echo $imageMeme; ?>"/>
+<meta property="og:site_name" content="<?php bloginfo( 'name' ); echo " - ".$description; ?>"/>
+<meta property="og:description" content="<?php echo mb_strimwidth($tags, 0, 400, "..."); ?>"/>	
+<?php 
+
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+/* 					Get URL Author IMG         */
+/* +++++++++++++++++++++++++++++++++++++++++++ */
+
+
 function getGravatarUrl($email) {
 	$str = $email;
 	preg_match('/(src=["\'](.*?)["\'])/', $str, $match);  //find src="X" or src='X'
@@ -256,8 +290,7 @@ function numericPagination() {
 /* 									Nuevos campos para usuarios                         */
 /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-function get_user_role($id)
-{
+function get_user_role($id) {
     $user = new WP_User($id);
     return array_shift($user->roles);
 }
