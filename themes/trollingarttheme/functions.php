@@ -144,7 +144,7 @@ add_action( 'wp_enqueue_scripts', 'trollingarttheme_scripts' );
 function metaTagsRich() {
 	$description = get_bloginfo( 'description', 'display' );
 	if (is_home() || is_front_page()){
-		$tags = 'Art memes, Art jokes, Art gif and Art';
+		$tags = "Museums don't have to be boring. With Trollingart you will discover that art can be fun: Art memes, Art Gif, Classic and Modern art.";
 		$imageMeme = "todo.jpg";
 	}else {
 		// Crea estructura de metas si el post es original trollingArt
