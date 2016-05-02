@@ -1,9 +1,6 @@
 @charset "UTF-8";
 /* numericPagination */
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400");
-body {
-  margin-top: 25px !important; }
-
 .navigation li a,
 .navigation li a:hover,
 .navigation li.active a,
@@ -403,11 +400,34 @@ h3.highlight {
 .accordion-heading .accordion-toggle, .accordion-inner, .nav-stacked li > a {
   padding-left: 1px; }
 
+/* Pages */
+.page header {
+  min-height: 10px; }
+
 footer {
   height: 50px;
   background-color: #dfdfdf;
   color: #888;
   margin-top: 20px; }
+
+.footer-socials .btn-twitter {
+  background-color: #4099FF;
+  color: #fff; }
+.footer-socials .btn-facebook {
+  background-color: #3B5998;
+  color: #fff; }
+.footer-socials .btn-google-plus {
+  background-color: #d34836;
+  color: #fff; }
+.footer-socials .btn-twitter:hover {
+  background-color: #3088FF;
+  color: #62BBFF; }
+.footer-socials .btn-facebook:hover {
+  background-color: #2A4998;
+  color: #4C6BBA; }
+.footer-socials .btn-google-plus:hover {
+  background-color: #C23836;
+  color: #E45A58; }
 
 @media (min-width: 992px) {
   .no-gutter.row > div[class*='col-md'] {

@@ -142,38 +142,40 @@ add_action( 'wp_enqueue_scripts', 'trollingarttheme_scripts' );
 
 
 function metaTagsRich() {
+  $post = get_post($post->ID);
 	$description = get_bloginfo( 'description', 'display' );
 	$canonicalTitle = get_bloginfo( 'name', 'display' ). " - ".$description;
 	if (is_home() || is_front_page()){
 		$tags = "Museums don't have to be boring. With Trollingart you will discover that art can be fun: Art memes, Art Gif, Classic and Modern art.";
 		$imageMeme = "http://trollingart.com/wp-content/themes/trollingarttheme/images/logo-trollingart.jpg";
 		$cannicalUrl = site_url();
-		
-	}else {
+	}elseif(is_page()) {
+      $tags = preg_replace( "/\r|\n/", " ", $post->post_content );
+  }else {
 		// Crea estructura de metas si el post es original trollingArt
 		$cannicalUrl = get_the_permalink();
 		$canonicalTitle = get_the_title();
 		if (!get_post_format($post->ID)) {
 			$datosArtists[] = get_field('artist');
-			$post = get_post($post->ID);
+
 			$tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', get_field('masterpiece'));
 			$tags .= ' - '.$datosArtists[0]['display_name'].". ".$post->post_content;
-			$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id))); 
+			$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
 		}else {
 			$tags = "";
 			$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
 		}
 	}
 ?>
-<meta name="description" content="<?php echo mb_strimwidth($tags, 0, 155, "..."); ?>"/>
+<meta name="description" content="<?php echo mb_strimwidth(strip_tags($tags), 0, 155, "..."); ?>"/>
 <!-- Facebook -->
 <meta property="fb:app_id" content="548546291973891"/>
 <meta property="og:title" content="<?php echo $canonicalTitle; ?>"/>
 <meta property="og:image" content="<?php echo $imageMeme; ?>"/>
 <meta property="og:site_name" content="<?php echo $cannicalUrl; ?>"/>
-<meta property="og:description" content="<?php echo mb_strimwidth($tags, 0, 400, "..."); ?>"/>	
-<meta property="og:url" content="<?php echo $cannicalUrl; ?>"/>	
-<?php 
+<meta property="og:description" content="<?php echo mb_strimwidth(strip_tags($tags), 0, 400, "..."); ?>"/>
+<meta property="og:url" content="<?php echo $cannicalUrl; ?>"/>
+<?php
 
 }
 
@@ -215,7 +217,8 @@ function share() {
 ?>
 <div class="pull-right">
 	<a class="js-social-share btn btn-danger btn-lg" href="http://www.facebook.com/sharer.php?u=<?php echo $urlPost; ?>" target="_blank"><i class="fa fa-facebook"></i></a>
-	<a class="js-social-share btn btn-success btn-lg" href="https://twitter.com/share?url=<?php echo $urlPost; ?>&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons"><i class="fa fa-twitter"></i></a>
+	<!--<a class="js-social-share btn btn-success btn-lg" href="https://twitter.com/share?url=<?php echo $urlPost; ?>&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons"><i class="fa fa-twitter"></i></a>-->
+	<a class="js-social-share btn btn-success btn-lg" href="https://twitter.com/share?url=<?php echo $urlPost; ?>&amp;text=<?php echo get_the_title(); ?>"><i class="fa fa-twitter"></i></a>
 </div>
 <?php
 }
@@ -335,13 +338,13 @@ add_action( "user_new_form", "custom_user_profile_fields" );
 
 function save_custom_user_profile_fields($user_id){
 	$role = get_user_role($user_id);
-		
+
     # again do this only if you can
     if(!current_user_can('manage_options'))
         return false;
-    if ($role !== "wikiartist") { 
+    if ($role !== "wikiartist") {
     	return false;
-    }   
+    }
 
     # save my custom field
 
@@ -372,7 +375,7 @@ function save_custom_user_profile_fields($user_id){
 	update_user_meta($user_id, 'company', $_POST['company']);
 	update_user_meta($user_id, 'wikiPicfile', $wikiProfile);
 	update_user_meta($user_id, 'description', $bioArtist);
-		
+
 		update_user_meta($user_id, 'first_name', $name);
 		update_user_meta($user_id, 'last_name', $lastname);
 		update_user_meta($user_id, 'nickname', $nickName);
