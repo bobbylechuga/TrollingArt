@@ -160,7 +160,12 @@ function metaTagsRich() {
 
 			$tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', get_field('masterpiece'));
 			$tags .= ' - '.$datosArtists[0]['display_name'].". ".$post->post_content;
-			$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
+			$selector = get_field('select-repost', $post_id );
+			if ($selector == true) {
+				$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
+			} else {
+				$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
+			}
 		}else {
 			$tags = "";
 			$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
