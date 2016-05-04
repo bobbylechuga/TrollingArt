@@ -25,7 +25,7 @@ get_header(); ?>
 							comments_template();
 						endif;
 					?>
-				<?php endwhile; // End of the loop. ?>	
+				<?php endwhile; // End of the loop. ?>
 			</main><!-- #main -->
 		</div>
 	</div>
@@ -36,9 +36,9 @@ get_header(); ?>
 
       <h1>Follow Us</h1>
       <div class="btn-group">
-       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
-	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
-	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+       <a class="btn btn-twitter btn-lg" href="#"><i class="fa fa-twitter fa-lg"></i> Twitter</a>
+		   <a class="btn btn-facebook btn-lg" href="#"><i class="fa fa-facebook fa-lg"></i> Facebook</a>
+		   <a class="btn btn-google-plus btn-lg" href="#"><i class="fa fa-google-plus fa-lg"></i> Google+</a>
       </div>
 
     </div>

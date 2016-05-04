@@ -39,7 +39,14 @@
 					<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
           <!--<p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a href="http://bootsnipp.com/snippets/MaWrA">http://bootsnipp.com/snippets/MaWrA</a></p>-->
           <a class="panel-google-plus-image" href="<?php echo get_permalink(); ?>">
-							<?php $imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id))); ?>
+						<?php
+							$selector = get_field('select-repost', $post_id );
+							if ($selector == true) {
+								$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
+							} else {
+								$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
+							}
+						?>
               <img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>">
           </a>
 					<p class="panel-tags"><?php $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) { echo '<span class="tags">#'.$tag->name . '</Span> '; } } ?></p>

@@ -189,6 +189,10 @@ function getGravatarUrl($email) {
 	preg_match('/(src=["\'](.*?)["\'])/', $str, $match);  //find src="X" or src='X'
 	$split = preg_split('/["\']/', $match[0]); // split by quotes
 	$url_avatar = $split[1]; // X between quotes
+	$selector = get_field('select-repost', $post_id );
+	if ($selector == true) {
+		$url_avatar = get_template_directory_uri()."/images/users/".get_the_author_meta( 'id' ).".jpg";
+	}
 	return $url_avatar;
 }
 

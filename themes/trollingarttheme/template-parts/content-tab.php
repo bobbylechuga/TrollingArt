@@ -14,8 +14,15 @@
    <div class="panel-body">
        <div class="tab-content">
            <div class="tab-pane active" id="tab1">
-             <?php $imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id))); ?>
-             <img src="<?php echo $imageMeme; ?>" class="img-responsive">
+             <?php
+               $selector = get_field('select-repost', $post_id );
+   							if ($selector == true) {
+   								$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
+   							} else {
+   								$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
+   							}
+             ?>
+             <center><img src="<?php echo $imageMeme; ?>" class="img-responsive"></center>
            </div>
            <div class="tab-pane" id="tab2">
              <?php
@@ -36,11 +43,11 @@
                     <center>
                     <img src="<?php echo $wikiPic; ?>" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     <h3 class="media-heading"><?php echo $nickName; ?></h3>
-                    <span><strong>Skills: </strong></span>
+                    <!--<span><strong>Skills: </strong></span>
                         <span class="label label-warning">HTML5/CSS</span>
                         <span class="label label-info">Adobe CS 5.5</span>
                         <span class="label label-info">Microsoft Office</span>
-                        <span class="label label-success">Windows XP, Vista, 7</span>
+                        <span class="label label-success">Windows XP, Vista, 7</span>-->
                     </center>
                     <hr>
                     <center>
@@ -52,7 +59,7 @@
                 </div>
                 <div class="modal-footer">
                     <center>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>-->
                     </center>
                 </div>
               </div>
