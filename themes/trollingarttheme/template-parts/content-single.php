@@ -6,7 +6,7 @@
  *
  * @package trollingarttheme
  */
-
+ $selector = get_field('select-repost', $post_id );
 ?>
 <style>
   #map-canvas {
@@ -27,7 +27,13 @@
           <h5><span>Shared publicly</span> - <span><?php echo get_the_date('Y, m, d');?></span> </h5>
       </div>
       <div class="panel-body">
-    	  <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+        <?php //the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+        <h3 class="entry-title">
+          <a href="<?php echo get_the_permalink(); ?>" rel="bookmark">
+            <?php if ($selector == true) {?><i class="fa fa-retweet" aria-hidden="true"></i><?php } ?>
+            <?php echo " ".get_the_title(); ?>
+          </a>
+        </h3>
           <!--<p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a href="http://bootsnipp.com/snippets/MaWrA">http://bootsnipp.com/snippets/MaWrA</a></p>-->
       </div>
       <?php

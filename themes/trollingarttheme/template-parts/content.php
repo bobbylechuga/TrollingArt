@@ -6,7 +6,7 @@
  *
  * @package trollingarttheme
  */
-
+	$selector = get_field('select-repost', $post_id );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -36,18 +36,28 @@
           <h5><span>Shared publicly</span> - <span><?php echo get_the_date('Y, m, d');?></span> </h5>
       </div>
       <div class="panel-body">
-					<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+					<?php //the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+					<h3 class="entry-title">
+						<a href="<?php echo get_the_permalink(); ?>" rel="bookmark">
+							<?php if ($selector == true) {?><i class="fa fa-retweet" aria-hidden="true"></i><?php } ?>
+							<?php echo " ".get_the_title(); ?>
+						</a>
+					</h3>
           <!--<p>Just created a new snippet inspired by the Svbtle Menu. Find it here: <a href="http://bootsnipp.com/snippets/MaWrA">http://bootsnipp.com/snippets/MaWrA</a></p>-->
           <a class="panel-google-plus-image" href="<?php echo get_permalink(); ?>">
 						<?php
-							$selector = get_field('select-repost', $post_id );
 							if ($selector == true) {
 								$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
+						?>
+								<blockquote><img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>" class="img-responsive"></blockquote>
+						<?php
 							} else {
 								$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
+							?>
+							<img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>" class="img-responsive">
+						<?php
 							}
 						?>
-              <img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>">
           </a>
 					<p class="panel-tags"><?php $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) { echo '<span class="tags">#'.$tag->name . '</Span> '; } } ?></p>
       </div>
