@@ -49,7 +49,7 @@
 							if ($selector == true) {
 								$imageMeme = wp_get_attachment_url( get_post_thumbnail_id($post_id));
 						?>
-								<blockquote><img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>" class="img-responsive"></blockquote>
+								<blockquote><center><img src="<?php echo $imageMeme; ?>" alt="<?php echo get_the_title(); ?>" class="img-responsive"></center></blockquote>
 						<?php
 							} else {
 								$imageMeme = getMemeName(wp_get_attachment_url( get_post_thumbnail_id($post_id)));
