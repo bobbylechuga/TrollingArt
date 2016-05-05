@@ -147,7 +147,7 @@ function metaTagsRich() {
 	$canonicalTitle = get_bloginfo( 'name', 'display' ). " - ".$description;
 	if (is_home() || is_front_page()){
 		$tags = "Museums don't have to be boring. With Trollingart you will discover that art can be fun: Art memes, Art Gif, Classic and Modern art.";
-		$imageMeme = "http://trollingart.com/wp-content/themes/trollingarttheme/images/logo-trollingart.jpg";
+		$imageMeme = get_template_directory_uri()."/images/cover-facebook.jpg";
 		$cannicalUrl = site_url();
 	}elseif(is_page()) {
       $tags = preg_replace( "/\r|\n/", " ", $post->post_content );
