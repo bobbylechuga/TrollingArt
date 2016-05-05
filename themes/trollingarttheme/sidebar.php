@@ -14,21 +14,17 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 <div class="col-md-3">
 	<div class="panel" id="midCol">
 		<?php if(is_home() || is_front_page()) { ?>
-			<div class="panel-heading" style="color: rgb(238, 238, 238); background-color: rgb(85, 85, 85);">New Stories</div>
+			<div class="panel-heading" style="color: rgb(238, 238, 238); background-color: rgb(85, 85, 85);">Help us?</div>
 		<?php } ?>
 		<div class="panel-body">
 
-			<img class="img-responsive" src="//placehold.it/300/77CCDD/66BBCC">
+			<img class="img-responsive" src="<?php echo get_template_directory_uri() ?>/images/hep-trolling-art.jpg" alt="Help Trollingart">
 
 			<div class="well">
-							<img class="img-responsive" src="http://s.bootply.com/assets/example/bg_iphone.png">
-							<h3><a href="http://getbootstrap.com">Bootstrap 3 is Here.</a></h3>
 							<p>
-							In simple terms, a responsive web design figures out what resolution of
-							device it's being served on. Flexible grids then size correctly to fit
-							the screen.
+							That would be awesome! At this time, while we’re trying out this new idea our biggest goal is to make ourselves known and get as many followers as possible. With that in mind, we have made this flyer so you can share it on your social media. When you do, please tag us so we know -that will make us very happy! We would also like you to tag all of your friends who might enjoy or be interested in our idea. Thanks a lot! The team.
 							</p>
-							<p><a href="http://www.bootply.com/bootstrap-3-migration-guide" target="ext">Read our migration guide for help with upgrading to Bootstrap 3.</a></p>
+							<p>Download / Share / Tag:</p>
 			</div>
 
 			<hr>
@@ -42,8 +38,18 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			<h5><a href="#"><i class="glyphicon glyphicon-user"></i> Amet Deberge</a></h5>
 
 			<hr>
-
-			<img class="img-responsive" src="//placehold.it/300x200/FFF">
+			<div classs="ad-siber300">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- New300x200 -->
+				<ins class="adsbygoogle"
+				     style="display:block"
+				     data-ad-client="ca-pub-3620678877337408"
+				     data-ad-slot="3714726770"
+				     data-ad-format="auto"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
 
 			<div class="media">
 				<a class="pull-left" href="#">

@@ -399,11 +399,6 @@ h3.highlight {
 .well {
   border-radius: 0; }
 
-.top-ad .well {
-  min-width: 650px;
-  min-height: 100px;
-  margin-top: 30px; }
-
 .accordion-heading .accordion-toggle, .accordion-inner, .nav-stacked li > a {
   padding-left: 1px; }
 
@@ -435,6 +430,27 @@ footer {
 .footer-socials .btn-google-plus:hover {
   background-color: #C23836;
   color: #E45A58; }
+
+/* Sidebar */
+.side-socials a {
+  color: #333; }
+
+.side-socials a:hover {
+  color: #427fed; }
+
+/* ADS */
+.top-ad .well {
+  min-width: 650px;
+  min-height: 100px;
+  margin-top: 30px; }
+
+.thin-ad {
+  min-width: 526px;
+  min-height: 180px; }
+
+.ad-siber300 {
+  min-width: 300px;
+  min-height: 200px; }
 
 @media (min-width: 992px) {
   .no-gutter.row > div[class*='col-md'] {
