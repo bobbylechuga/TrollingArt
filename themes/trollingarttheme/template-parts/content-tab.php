@@ -6,7 +6,7 @@
            <ul class="nav panel-tabs">
                <li class="active"><a href="#tab1" data-toggle="tab"><span class="fa fa-bookmark" aria-hidden="true"></span></a></li>
                <li><a href="#tab2" data-toggle="tab"><span class="fa fa-wikipedia-w" aria-hidden="true"></span></a></li>
-               <li><a href="#tab3" data-toggle="tab" id="link3"><span class="fa fa-map-marker" aria-hidden="true"></span></a></li>
+               <li><a href="#tab3" data-toggle="tab" id="link3"><span class="fa fa-map-marker" aria-hidden="true"></span> #gotothemuseum</a></li>
                <!--<li><a href="#tab4" data-toggle="tab">Tab 4</a></li>-->
            </ul>
        </span>
