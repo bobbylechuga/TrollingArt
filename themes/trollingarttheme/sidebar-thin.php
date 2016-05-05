@@ -58,8 +58,8 @@ if ( ! is_active_sidebar( 'sidebar-2' ) ) {
 	  <hr>
 
 	<div class="col col-span-12 side-socials">
-		<p>Keep in touch with us
-
+		<h5>Keep in touch with us</h5>
+		<p>
 		This is a startup experiment, if you want to support us, just share or subscribe:</p>
 	  <a href="https://www.facebook.com/trollingartdotcom/" target="_blank"><i class="fa-2x fa fa-facebook-square"></i></a>&nbsp;
 	  <a href="https://twitter.com/trolling_art" target="_blank"><i class="fa-2x fa fa-twitter-square"></i></a>&nbsp;
