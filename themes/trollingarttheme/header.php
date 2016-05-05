@@ -123,7 +123,7 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/images/logo-trollingart.jpg" class="img-responsive">
 				</a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 top-ad">
         <div class="well pull-right">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- trollingNewTop -->
