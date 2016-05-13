@@ -252,7 +252,14 @@ blockquote p {
 			margin: 0 auto;
 		}
 }
-
+.img-real {
+	max-width: 540px;
+	padding: 30px 30px 10px;
+}
+.ArtWorkName {
+	padding-bottom: 10px;
+	font-weight: 600;
+}
 .content-inside {
 	min-height: 1500px;
 }

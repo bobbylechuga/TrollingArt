@@ -140,6 +140,15 @@ function trollingarttheme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'trollingarttheme_scripts' );
 
+function the_author_like_google() {
+?>
+  <img class="img-circle pull-left" src="<?php $email = get_avatar( get_the_author_meta('email') , 65 ); echo getGravatarUrl($email); ?>" alt="<?php the_author_meta('display_name') ?>">
+  <h3><?php the_author_meta('display_name'); ?></h3>
+  <h5><span>Shared publicly</span> - <span><?php echo get_the_date('Y, m, d');?></span> </h5>
+<?php
+}
+
+/* MetaTags */
 
 function metaTagsRich() {
   $post = get_post($post->ID);
@@ -427,9 +436,9 @@ function getWikiInfo($museum, $masterpiece) {
 	}
 	$output = '<div>';
 	$output .= $infoMasterpiece;
+	$output .= '<h3>'.$museo.'</h3>';
 	$output .= '</div>';
 	$output .= '<div>';
-	$output .= '<h3>Place:</h3>'.$museo;
 	$output .= '</div>';
 	echo $output;
 ?>

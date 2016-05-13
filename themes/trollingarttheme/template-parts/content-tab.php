@@ -29,6 +29,8 @@
                $datosArtists[] = get_field('artist');
                $museumField = get_field('museum');
                $masterpieceField = get_field('masterpiece');
+               $urImageReal = get_field('image_real');
+               $ArtWorkName = get_field('name_of_the_artwork');
                //print_r($datosArtists);
                foreach ($datosArtists as $key) {
                  $idUsr = $key['ID'];
@@ -65,6 +67,12 @@
               </div>
            </div>
            <div class="tab-pane" id="tab3">
+             <center>
+               <?php if($urImageReal) { ?>  <img src="<?php echo $urImageReal; ?>" class="img-responsive img-real"><?php } ?>
+               <?php if (!$masterpieceField) { ?>
+                 <p class="ArtWorkName"><?php echo $ArtWorkName; ?></p>
+               <?php }else {  ?> <p class="ArtWorkName"><?php echo str_replace("_", " ", $masterpieceField); ?></p><?php } ?>
+             </center>
              <?php getWikiInfo("$museumField", "$masterpieceField"); ?>
            </div>
            <!--<div class="tab-pane" id="tab4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

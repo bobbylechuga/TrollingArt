@@ -31,9 +31,7 @@
           </ul>
       </div>
       <div class="panel-heading">
-          <img class="img-circle pull-left" src="<?php $email = get_avatar( get_the_author_meta('email') , 65 ); echo getGravatarUrl($email); ?>" alt="<?php the_author_meta('display_name') ?>">
-          <h3><?php the_author_meta('display_name'); ?></h3>
-          <h5><span>Shared publicly</span> - <span><?php echo get_the_date('Y, m, d');?></span> </h5>
+          <?php the_author_like_google(); ?>
       </div>
       <div class="panel-body">
 					<?php //the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
