@@ -1,5 +1,5 @@
 <?php
-	header("Location: http://trollingart-alphacity.rhcloud.com/".$_SERVER[REQUEST_URI]);
+	header("Location: http://trollingart-alphacity.rhcloud.com".$_SERVER[REQUEST_URI]);
 	//$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 
