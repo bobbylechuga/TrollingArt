@@ -189,6 +189,13 @@ function metaTagsRich() {
 <meta property="og:site_name" content="<?php echo $cannicalUrl; ?>"/>
 <meta property="og:description" content="<?php echo mb_strimwidth(strip_tags($tags), 0, 400, "..."); ?>"/>
 <meta property="og:url" content="<?php echo $cannicalUrl; ?>"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@trolling_art">
+<meta name="twitter:creator" content="@trolling_art">
+<meta name="twitter:title" content="<?php echo $canonicalTitle; ?>">
+<meta name="twitter:description" content="<?php echo mb_strimwidth(strip_tags($tags), 0, 400, "..."); ?>">
+<meta name="twitter:image" content="<?php echo $imageMeme; ?>">
+
 <?php
 
 }
