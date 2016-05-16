@@ -64,3 +64,6 @@
 			</div>
   </div>
 </article><!-- #post-## -->
+<div class="FacebookComment">
+  <?php echo do_shortcode('[fbcomments url="http://peadig.com/wordpress-plugins/facebook-comments/" count="off" num="3" countmsg="wonderful comments!"]'); ?>
+</div>
